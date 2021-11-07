@@ -20,8 +20,17 @@ class _RadioBox extends State<RadioBox> {
             title: const Text('Are you sure?'),
             actions: <Widget>[
               TextButton(
-                onPressed: () => Navigator.pop(context, 'OK'),
+                onPressed: () {
+                  Navigator.pop(context, 'OK');
+                  Navigator.pushNamed(context, '/page_two');
+                },
                 child: const Text('OK'),
+              ),
+              TextButton(
+                onPressed: () {
+                  Navigator.pop(context, 'Cancel');
+                },
+                child: const Text('Cancel'),
               ),
             ],
           )
@@ -34,8 +43,17 @@ class _RadioBox extends State<RadioBox> {
             title: const Text('Are you sure?'),
             actions: <Widget>[
               TextButton(
-                onPressed: () => Navigator.pop(context, 'OK'),
+                onPressed: () {
+                  Navigator.pop(context, 'OK');
+                  Navigator.pushNamed(context, '/page_two');
+                },
                 child: const Text('OK'),
+              ),
+              TextButton(
+                onPressed: () {
+                  Navigator.pop(context, 'Cancel');
+                },
+                child: const Text('Cancel'),
               ),
             ],
           )

@@ -28,17 +28,23 @@ class _RadioBox extends State<RadioBox> {
       showDialog<String>(
           context: context,
           builder: (BuildContext context) => AlertDialog(
-          title: const Text('Are you sure?'),
-          actions: <Widget>[
-            TextButton(
-              onPressed: () {
-                Navigator.pop(context, 'OK');
-                Navigator.pushNamed(context, '/page_two');
-              },
-              child: const Text('OK'),
-            ),
-          ],
-        )
+            title: const Text('Are you sure?'),
+            actions: <Widget>[
+              TextButton(
+                onPressed: () {
+                  Navigator.pop(context, 'OK');
+                  Navigator.pushNamed(context, '/page_two');
+                },
+                child: const Text('OK'),
+              ),
+              TextButton(
+                onPressed: () {
+                  Navigator.pop(context, 'Cancel');
+                },
+                child: const Text('Cancel'),
+              ),
+            ],
+          )
       );
     }
     else {
@@ -54,6 +60,12 @@ class _RadioBox extends State<RadioBox> {
                 },
                 child: const Text('OK'),
               ),
+              TextButton(
+                onPressed: () {
+                  Navigator.pop(context, 'Cancel');
+                },
+                child: const Text('Cancel'),
+              ),
             ],
           )
       );
@@ -66,44 +78,44 @@ class _RadioBox extends State<RadioBox> {
       children: [
         Row(
           children: <Widget>[
-          Column(
-            children: [
-              const Image(
-                image: NetworkImage('https://static.wikia.nocookie.net/virtualyoutuber/images/3/35/Nekomata_Okayu_img.png/revision/latest/top-crop/width/360/height/450?cb=20190405185910'),
-                width: 100,
-                height: 100,
-              ),
-              Radio<Selection>(
-                value: Selection.test1,
-                groupValue: _selection,
+            Column(
+              children: [
+                const Image(
+                  image: NetworkImage('https://static.wikia.nocookie.net/virtualyoutuber/images/3/35/Nekomata_Okayu_img.png/revision/latest/top-crop/width/360/height/450?cb=20190405185910'),
+                  width: 100,
+                  height: 100,
+                ),
+                Radio<Selection>(
+                  value: Selection.test1,
+                  groupValue: _selection,
                   onChanged: (Selection? value) {
-                  setState(() {
-                    _selection = value;
-                    detect(value);
-                  });
-                },
-              ),
-            ],
-          ),
-          Column(
-            children: [
-              const Image(
-                image: NetworkImage('https://upload.wikimedia.org/wikipedia/zh/thumb/1/11/Inugami_Korone.png/300px-Inugami_Korone.png'),
-                width: 100,
-                height: 100,
-              ),
-              Radio<Selection>(
-                value: Selection.test2,
-                groupValue: _selection,
-                onChanged: (Selection? value) {
-                  setState(() {
-                    _selection = value;
-                    detect(value);
-                  });
-                },
-              ),
-           ],
-          ),
+                    setState(() {
+                      _selection = value;
+                      detect(value);
+                    });
+                  },
+                ),
+              ],
+            ),
+            Column(
+              children: [
+                const Image(
+                  image: NetworkImage('https://upload.wikimedia.org/wikipedia/zh/thumb/1/11/Inugami_Korone.png/300px-Inugami_Korone.png'),
+                  width: 100,
+                  height: 100,
+                ),
+                Radio<Selection>(
+                  value: Selection.test2,
+                  groupValue: _selection,
+                  onChanged: (Selection? value) {
+                    setState(() {
+                      _selection = value;
+                      detect(value);
+                    });
+                  },
+                ),
+              ],
+            ),
             Column(
               children: [
                 const Image(
