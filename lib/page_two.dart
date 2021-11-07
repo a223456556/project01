@@ -1,15 +1,4 @@
 import 'package:flutter/material.dart';
-import '/page_two.dart';
-
-void main() {
-  runApp(MaterialApp(
-    initialRoute: '/home',
-    routes: {
-      '/home':(context) => const MyApp(),
-      '/page_two':(context) => const NotMyApp(),
-    },
-  ));
-}
 
 enum Selection { test1, test2, test3, test4, test5}
 
@@ -28,17 +17,14 @@ class _RadioBox extends State<RadioBox> {
       showDialog<String>(
           context: context,
           builder: (BuildContext context) => AlertDialog(
-          title: const Text('You Pass!!'),
-          actions: <Widget>[
-            TextButton(
-              onPressed: () {
-                Navigator.pop(context, 'OK');
-                Navigator.pushNamed(context, '/page_two');
-              },
-              child: const Text('OK'),
-            ),
-          ],
-        )
+            title: const Text('You Pass!!'),
+            actions: <Widget>[
+              TextButton(
+                onPressed: () => Navigator.pop(context, 'OK'),
+                child: const Text('OK'),
+              ),
+            ],
+          )
       );
     }
     else {
@@ -48,10 +34,7 @@ class _RadioBox extends State<RadioBox> {
             title: const Text('You Failed!!'),
             actions: <Widget>[
               TextButton(
-                onPressed: () {
-                  Navigator.pop(context, 'OK');
-                  Navigator.pushNamed(context, '/page_two');
-                },
+                onPressed: () => Navigator.pop(context, 'OK'),
                 child: const Text('OK'),
               ),
             ],
@@ -66,44 +49,44 @@ class _RadioBox extends State<RadioBox> {
       children: [
         Row(
           children: <Widget>[
-          Column(
-            children: [
-              const Image(
-                image: NetworkImage('https://static.wikia.nocookie.net/virtualyoutuber/images/3/35/Nekomata_Okayu_img.png/revision/latest/top-crop/width/360/height/450?cb=20190405185910'),
-                width: 100,
-                height: 100,
-              ),
-              Radio<Selection>(
-                value: Selection.test1,
-                groupValue: _selection,
+            Column(
+              children: [
+                const Image(
+                  image: NetworkImage('https://static.wikia.nocookie.net/virtualyoutuber/images/3/35/Nekomata_Okayu_img.png/revision/latest/top-crop/width/360/height/450?cb=20190405185910'),
+                  width: 100,
+                  height: 100,
+                ),
+                Radio<Selection>(
+                  value: Selection.test1,
+                  groupValue: _selection,
                   onChanged: (Selection? value) {
-                  setState(() {
-                    _selection = value;
-                    detect(value);
-                  });
-                },
-              ),
-            ],
-          ),
-          Column(
-            children: [
-              const Image(
-                image: NetworkImage('https://upload.wikimedia.org/wikipedia/zh/thumb/1/11/Inugami_Korone.png/300px-Inugami_Korone.png'),
-                width: 100,
-                height: 100,
-              ),
-              Radio<Selection>(
-                value: Selection.test2,
-                groupValue: _selection,
-                onChanged: (Selection? value) {
-                  setState(() {
-                    _selection = value;
-                    detect(value);
-                  });
-                },
-              ),
-           ],
-          ),
+                    setState(() {
+                      _selection = value;
+                      detect(value);
+                    });
+                  },
+                ),
+              ],
+            ),
+            Column(
+              children: [
+                const Image(
+                  image: NetworkImage('https://upload.wikimedia.org/wikipedia/zh/thumb/1/11/Inugami_Korone.png/300px-Inugami_Korone.png'),
+                  width: 100,
+                  height: 100,
+                ),
+                Radio<Selection>(
+                  value: Selection.test2,
+                  groupValue: _selection,
+                  onChanged: (Selection? value) {
+                    setState(() {
+                      _selection = value;
+                      detect(value);
+                    });
+                  },
+                ),
+              ],
+            ),
             Column(
               children: [
                 const Image(
@@ -168,8 +151,8 @@ class _RadioBox extends State<RadioBox> {
 }
 
 
-class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
+class NotMyApp extends StatelessWidget {
+  const NotMyApp({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -184,7 +167,7 @@ class MyApp extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.start,
           children: const <Widget>[
             Text(
-              'QUIZ 1',
+              'QUIZ 2',
               style: TextStyle(
                 fontSize: 32.0,
                 fontWeight: FontWeight.bold,
@@ -205,33 +188,6 @@ class MyApp extends StatelessWidget {
           ],
         ),
       ),
-      /*floatingActionButton: FloatingActionButton(
-        child: const Text('Next'),
-        backgroundColor: Colors.red[300],
-        onPressed: () {
-          showDialog<String>(
-              context: context,
-              builder: (BuildContext context) => AlertDialog(
-                title: const Text('You sure you want to give up?'),
-                actions: <Widget>[
-                  TextButton(
-                    onPressed: () {
-                      Navigator.pop(context, 'No');
-                    },
-                    child: const Text('No'),
-                  ),
-                  TextButton(
-                    onPressed: () {
-                      Navigator.pop(context, 'Yes');
-                      Navigator.pushNamed(context, '/test');
-                    },
-                    child: const Text('Yes'),
-                  ),
-                ],
-              )
-          );
-        }
-      ),*/
     );
   }
 }
