@@ -22,7 +22,6 @@ class _RadioBox extends State<RadioBox> {
               TextButton(
                 onPressed: () {
                   Navigator.pop(context, 'OK');
-                  Navigator.pushNamed(context, '/page_two');
                 },
                 child: const Text('OK'),
               ),
@@ -45,7 +44,6 @@ class _RadioBox extends State<RadioBox> {
               TextButton(
                 onPressed: () {
                   Navigator.pop(context, 'OK');
-                  Navigator.pushNamed(context, '/page_two');
                 },
                 child: const Text('OK'),
               ),
