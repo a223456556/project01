@@ -28,7 +28,7 @@ class _RadioBox extends State<RadioBox> {
       showDialog<String>(
           context: context,
           builder: (BuildContext context) => AlertDialog(
-          title: const Text('You Pass!!'),
+          title: const Text('Are you sure?'),
           actions: <Widget>[
             TextButton(
               onPressed: () {
@@ -45,7 +45,7 @@ class _RadioBox extends State<RadioBox> {
       showDialog<String>(
           context: context,
           builder: (BuildContext context) => AlertDialog(
-            title: const Text('You Failed!!'),
+            title: const Text('Are you sure?'),
             actions: <Widget>[
               TextButton(
                 onPressed: () {
